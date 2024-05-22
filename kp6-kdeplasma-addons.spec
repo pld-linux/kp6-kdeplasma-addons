@@ -7,18 +7,18 @@
 %undefine	with_qtwebengine
 %endif
 
-%define		kdeplasmaver	6.0.4
+%define		kdeplasmaver	6.0.5
 %define		qtver		5.15.2
 %define		kpname		kdeplasma-addons
 
 Summary:	All kind of addons to improve your Plasma experience
 Name:		kp6-%{kpname}
-Version:	6.0.4
+Version:	6.0.5
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	372609f06eb288ad2df4f093a211ac24
+# Source0-md5:	f166678fa85a8d7fbdb04bac7e7efcb7
 URL:		http://www.kde.org/
 BuildRequires:	Qt6Core-devel >= %{qtver}
 %{?with_qtwebengine:BuildRequires:	Qt6WebEngine-devel}
