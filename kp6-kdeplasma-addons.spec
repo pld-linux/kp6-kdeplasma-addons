@@ -7,18 +7,18 @@
 %undefine	with_qtwebengine
 %endif
 
-%define		kdeplasmaver	6.0.5
+%define		kdeplasmaver	6.1.0
 %define		qtver		5.15.2
 %define		kpname		kdeplasma-addons
 
 Summary:	All kind of addons to improve your Plasma experience
 Name:		kp6-%{kpname}
-Version:	6.0.5
+Version:	6.1.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	f166678fa85a8d7fbdb04bac7e7efcb7
+# Source0-md5:	af15f9fa26679d487580fb40bc22af4d
 URL:		http://www.kde.org/
 BuildRequires:	Qt6Core-devel >= %{qtver}
 %{?with_qtwebengine:BuildRequires:	Qt6WebEngine-devel}
@@ -46,6 +46,7 @@ BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	scim-devel
 BuildRequires:	xcb-util-keysyms-devel
 BuildRequires:	xz
+Obsoletes:	kp5-%{kpname} < %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		qt6dir		%{_libdir}/qt6
@@ -58,6 +59,7 @@ Summary:	Header files for %{kpname} development
 Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kpname}
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Obsoletes:	kp5-%{kpname}-devel < %{version}
 
 %description devel
 Header files for %{kpname} development.
@@ -212,9 +214,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/qt6/qml/org/kde/plasma/private/profiles/libprofiles_qml_plugin.so
 %dir %{_libdir}/qt6/qml/org/kde/plasma/private/profiles
 %{_libdir}/qt6/qml/org/kde/plasma/private/profiles/qmldir
-%{_libdir}/qt6/qml/org/kde/plasmacalendar/alternatecalendarconfig/libplasmacalendaralternatecalendarconfig.so
-%dir %{_libdir}/qt6/qml/org/kde/plasmacalendar/alternatecalendarconfig
-%{_libdir}/qt6/qml/org/kde/plasmacalendar/alternatecalendarconfig/qmldir
 %{_datadir}/kdevappwizard/templates/plasmapotdprovider.tar.bz2
 %{_datadir}/metainfo/org.kde.plasma.addons.katesessions.appdata.xml
 %dir %{_datadir}/plasma/plasmoids/org.kde.plasma.addons.katesessions
@@ -252,8 +251,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/qt6/qml/org/kde/plasma/private/weather/weatherplugin.qmltypes
 %{_libdir}/qt6/qml/org/kde/plasma/wallpapers/potd/kde-qmlmodule.version
 %{_libdir}/qt6/qml/org/kde/plasma/wallpapers/potd/plasma_wallpaper_potdplugin.qmltypes
-%{_libdir}/qt6/qml/org/kde/plasmacalendar/alternatecalendarconfig/kde-qmlmodule.version
-%{_libdir}/qt6/qml/org/kde/plasmacalendar/alternatecalendarconfig/plasmacalendaralternatecalendarconfig.qmltypes
 %{_libdir}/qt6/qml/org/kde/plasmacalendar/astronomicaleventsconfig/kde-qmlmodule.version
 %{_libdir}/qt6/qml/org/kde/plasmacalendar/astronomicaleventsconfig/plasmacalendarastronomicaleventsconfig.qmltypes
 %{_datadir}/knotifications6/plasma_applet_timer.notifyrc
@@ -267,11 +264,23 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kwin/effects/cube/contents/ui/main.qml
 %{_datadir}/kwin/effects/cube/metadata.json
 %{_datadir}/qlogging-categories6/kdeplasma-addons.categories
+%{_datadir}/polkit-1/actions/org.kde.kameleonhelper.policy
+
+%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/kded/kameleon.so
+%{_libdir}/qt6/qml/org/kde/plasma/private/alternatecalendarconfig/kde-qmlmodule.version
+%attr(755,root,root) %{_libdir}/qt6/qml/org/kde/plasma/private/alternatecalendarconfig/libplasmacalendaralternatecalendarconfig.so
+%{_libdir}/qt6/qml/org/kde/plasma/private/alternatecalendarconfig/plasmacalendaralternatecalendarconfig.qmltypes
+%{_libdir}/qt6/qml/org/kde/plasma/private/alternatecalendarconfig/qmldir
+%attr(755,root,root) %{_prefix}/libexec/kf6/kauth/kameleonhelper
+%{_datadir}/dbus-1/system-services/org.kde.kameleonhelper.service
+%{_datadir}/dbus-1/system.d/org.kde.kameleonhelper.conf
+%{_datadir}/kwin/effects/cube/contents/ui/PlaceholderView.qml
+
 
 %if %{with qtwebengine}
 %{_datadir}/plasma/plasmoids/org.kde.plasma.webbrowser
 %dir %{_libdir}/qt6/qml/org/kde/plasma/private/dict
-%{_libdir}/qt6/qml/org/kde/plasma/private/dict/libdictplugin.so
+%attr(755,root,root) %{_libdir}/qt6/qml/org/kde/plasma/private/dict/libdictplugin.so
 %{_libdir}/qt6/qml/org/kde/plasma/private/dict/qmldir
 %{_iconsdir}/hicolor/scalable/apps/accessories-dictionary.svg*
 %{_datadir}/metainfo/org.kde.plasma.webbrowser.appdata.xml
