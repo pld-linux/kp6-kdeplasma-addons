@@ -3,7 +3,7 @@
 %bcond_without	qtwebengine	# build with Qt6Webengine support
 %bcond_with	tests		# build with tests
 
-%ifarch x32
+%ifarch x32 i686
 %undefine	with_qtwebengine
 %endif
 
