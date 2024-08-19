@@ -40,6 +40,7 @@ BuildRequires:	kf6-kparts-devel
 BuildRequires:	kf6-krunner-devel
 BuildRequires:	kf6-kservice-devel
 BuildRequires:	kf6-kunitconversion-devel
+BuildRequires:	kp6-plasma5support-devel
 BuildRequires:	libxcb-devel
 BuildRequires:	ninja
 BuildRequires:	rpmbuild(macros) >= 1.164
