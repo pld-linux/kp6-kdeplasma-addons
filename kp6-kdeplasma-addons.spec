@@ -25,12 +25,15 @@ BuildRequires:	Qt6Core-devel >= %{qtver}
 BuildRequires:	cmake >= 3.16.0
 BuildRequires:	glib2-devel
 BuildRequires:	ibus-devel
+BuildRequires:	kf6-extra-cmake-modules >= 6.2.0
 BuildRequires:	kf6-karchive-devel
 BuildRequires:	kf6-kcmutils-devel
 BuildRequires:	kf6-kconfig-devel
 BuildRequires:	kf6-kconfigwidgets-devel
 BuildRequires:	kf6-kcoreaddons-devel
+BuildRequires:	kf6-kdbusaddons-devel
 BuildRequires:	kf6-kdeclarative-devel
+BuildRequires:	kf6-kglobalaccel-devel
 BuildRequires:	kf6-kholidays-devel
 BuildRequires:	kf6-ki18n-devel
 BuildRequires:	kf6-kio-devel
@@ -40,7 +43,8 @@ BuildRequires:	kf6-kparts-devel
 BuildRequires:	kf6-krunner-devel
 BuildRequires:	kf6-kservice-devel
 BuildRequires:	kf6-kunitconversion-devel
-BuildRequires:	kp6-plasma5support-devel
+BuildRequires:	kp6-libplasma-devel >= %{version}
+BuildRequires:	kp6-plasma5support-devel >= %{version}
 BuildRequires:	libxcb-devel
 BuildRequires:	ninja
 BuildRequires:	rpmbuild(macros) >= 1.164
