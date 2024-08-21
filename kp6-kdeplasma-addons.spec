@@ -232,8 +232,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/qt6/plugins/plasma/applets/org.kde.plasma.comic.so
 %{_libdir}/qt6/qml/org/kde/plasma/private/colorpicker/colorpickerplugin.qmltypes
 %{_libdir}/qt6/qml/org/kde/plasma/private/colorpicker/kde-qmlmodule.version
-%{_libdir}/qt6/qml/org/kde/plasma/private/dict/dictplugin.qmltypes
-%{_libdir}/qt6/qml/org/kde/plasma/private/dict/kde-qmlmodule.version
 %{_libdir}/qt6/qml/org/kde/plasma/private/diskquota/diskquotaplugin.qmltypes
 %{_libdir}/qt6/qml/org/kde/plasma/private/diskquota/kde-qmlmodule.version
 %{_libdir}/qt6/qml/org/kde/plasma/private/fifteenpuzzle/fifteenpuzzleplugin.qmltypes
@@ -282,6 +280,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/plasma/plasmoids/org.kde.plasma.webbrowser
 %dir %{_libdir}/qt6/qml/org/kde/plasma/private/dict
 %attr(755,root,root) %{_libdir}/qt6/qml/org/kde/plasma/private/dict/libdictplugin.so
+%{_libdir}/qt6/qml/org/kde/plasma/private/dict/dictplugin.qmltypes
+%{_libdir}/qt6/qml/org/kde/plasma/private/dict/kde-qmlmodule.version
 %{_libdir}/qt6/qml/org/kde/plasma/private/dict/qmldir
 %{_iconsdir}/hicolor/scalable/apps/accessories-dictionary.svg*
 %{_datadir}/metainfo/org.kde.plasma.webbrowser.appdata.xml
