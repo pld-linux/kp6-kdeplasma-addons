@@ -7,18 +7,18 @@
 %undefine	with_qtwebengine
 %endif
 
-%define		kdeplasmaver	6.1.5
+%define		kdeplasmaver	6.2.0
 %define		qtver		5.15.2
 %define		kpname		kdeplasma-addons
 
 Summary:	All kind of addons to improve your Plasma experience
 Name:		kp6-%{kpname}
-Version:	6.1.5
+Version:	6.2.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	39321b06a3b6198772c6024e11f3128e
+# Source0-md5:	c90655305065f8731e9078f5f72ff405
 URL:		http://www.kde.org/
 BuildRequires:	Qt6Core-devel >= %{qtver}
 %{?with_qtwebengine:BuildRequires:	Qt6WebEngine-devel}
@@ -147,7 +147,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/qt6/plugins/potd/plasma_potd_bingprovider.so
 %{_libdir}/qt6/plugins/potd/plasma_potd_epodprovider.so
 %{_libdir}/qt6/plugins/potd/plasma_potd_flickrprovider.so
-%{_libdir}/qt6/plugins/potd/plasma_potd_natgeoprovider.so
 %{_libdir}/qt6/plugins/potd/plasma_potd_noaaprovider.so
 %{_libdir}/qt6/plugins/potd/plasma_potd_wcpotdprovider.so
 %dir %{_libdir}/qt6/qml/org/kde/plasma/private/mediaframe
