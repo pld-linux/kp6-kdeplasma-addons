@@ -256,7 +256,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/qt6/qml/org/kde/plasmacalendar/astronomicaleventsconfig/kde-qmlmodule.version
 %{_libdir}/qt6/qml/org/kde/plasmacalendar/astronomicaleventsconfig/plasmacalendarastronomicaleventsconfig.qmltypes
 %{_datadir}/knotifications6/plasma_applet_timer.notifyrc
+%dir %{_datadir}/kwin/effects/cube
+%dir %{_datadir}/kwin/effects/cube/contents
+%dir %{_datadir}/kwin/effects/cube/contents/config
 %{_datadir}/kwin/effects/cube/contents/config/main.xml
+%dir %{_datadir}/kwin/effects/cube/contents/ui
 %{_datadir}/kwin/effects/cube/contents/ui/Cube.qml
 %{_datadir}/kwin/effects/cube/contents/ui/CubeCameraController.qml
 %{_datadir}/kwin/effects/cube/contents/ui/CubeFace.qml
@@ -269,6 +273,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/polkit-1/actions/org.kde.kameleonhelper.policy
 
 %attr(755,root,root) %{_libdir}/qt6/plugins/kf6/kded/kameleon.so
+%dir %{_libdir}/qt6/qml/org/kde/plasma/private/alternatecalendarconfig
 %{_libdir}/qt6/qml/org/kde/plasma/private/alternatecalendarconfig/kde-qmlmodule.version
 %attr(755,root,root) %{_libdir}/qt6/qml/org/kde/plasma/private/alternatecalendarconfig/libplasmacalendaralternatecalendarconfig.so
 %{_libdir}/qt6/qml/org/kde/plasma/private/alternatecalendarconfig/plasmacalendaralternatecalendarconfig.qmltypes
