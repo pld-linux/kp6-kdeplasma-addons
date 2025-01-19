@@ -8,7 +8,8 @@
 %endif
 
 %define		kdeplasmaver	6.2.5
-%define		qtver		5.15.2
+%define		kfver		6.5.0
+%define		qtver		6.7.0
 %define		kpname		kdeplasma-addons
 
 Summary:	All kind of addons to improve your Plasma experience
@@ -21,36 +22,58 @@ Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{vers
 # Source0-md5:	674acca7673db3d72f0c0fb87fb65e4b
 URL:		http://www.kde.org/
 BuildRequires:	Qt6Core-devel >= %{qtver}
+BuildRequires:	Qt6DBus-devel >= %{qtver}
+BuildRequires:	Qt6Gui-devel >= %{qtver}
+BuildRequires:	Qt6Network-devel >= %{qtver}
+BuildRequires:	Qt6Qml-devel >= %{qtver}
+BuildRequires:	Qt6Qt5Compat-devel >= %{qtver}
+BuildRequires:	Qt6Quick-devel >= %{qtver}
+BuildRequires:	Qt6Test-devel >= %{qtver}
+BuildRequires:	Qt6Widgets-devel >= %{qtver}
 %{?with_qtwebengine:BuildRequires:	Qt6WebEngine-devel}
 BuildRequires:	cmake >= 3.16.0
-BuildRequires:	glib2-devel
-BuildRequires:	ibus-devel
-BuildRequires:	kf6-extra-cmake-modules >= 6.2.0
-BuildRequires:	kf6-karchive-devel
-BuildRequires:	kf6-kcmutils-devel
-BuildRequires:	kf6-kconfig-devel
-BuildRequires:	kf6-kconfigwidgets-devel
-BuildRequires:	kf6-kcoreaddons-devel
-BuildRequires:	kf6-kdbusaddons-devel
-BuildRequires:	kf6-kdeclarative-devel
-BuildRequires:	kf6-kglobalaccel-devel
-BuildRequires:	kf6-kholidays-devel
-BuildRequires:	kf6-ki18n-devel
-BuildRequires:	kf6-kio-devel
-BuildRequires:	kf6-knewstuff-devel
-BuildRequires:	kf6-knotifications-devel
-BuildRequires:	kf6-kparts-devel
-BuildRequires:	kf6-krunner-devel
-BuildRequires:	kf6-kservice-devel
-BuildRequires:	kf6-kunitconversion-devel
-BuildRequires:	kp6-libplasma-devel >= %{version}
-BuildRequires:	kp6-plasma5support-devel >= %{version}
-BuildRequires:	libxcb-devel
+BuildRequires:	kf6-extra-cmake-modules >= %{kfver}
+BuildRequires:	kf6-kauth-devel >= %{kfver}
+BuildRequires:	kf6-kcmutils-devel >= %{kfver}
+BuildRequires:	kf6-kconfig-devel >= %{kfver}
+BuildRequires:	kf6-kconfigwidgets-devel >= %{kfver}
+BuildRequires:	kf6-kcoreaddons-devel >= %{kfver}
+BuildRequires:	kf6-kdbusaddons-devel >= %{kfver}
+BuildRequires:	kf6-kdeclarative-devel >= %{kfver}
+BuildRequires:	kf6-kglobalaccel-devel >= %{kfver}
+BuildRequires:	kf6-kholidays-devel >= %{kfver}
+BuildRequires:	kf6-ki18n-devel >= %{kfver}
+BuildRequires:	kf6-kio-devel >= %{kfver}
+BuildRequires:	kf6-kjobwidgets-devel >= %{kfver}
+BuildRequires:	kf6-knewstuff-devel >= %{kfver}
+BuildRequires:	kf6-knotifications-devel >= %{kfver}
+BuildRequires:	kf6-kpackage-devel >= %{kfver}
+BuildRequires:	kf6-krunner-devel >= %{kfver}
+BuildRequires:	kf6-kservice-devel >= %{kfver}
+BuildRequires:	kf6-kunitconversion-devel >= %{kfver}
+BuildRequires:	kf6-kwidgetsaddons-devel >= %{kfver}
+BuildRequires:	kf6-kxmlgui-devel >= %{kfver}
+BuildRequires:	kf6-sonnet-devel >= %{kfver}
+BuildRequires:	kp6-libplasma-devel >= %{kdeplasmaver}
+BuildRequires:	kp6-plasma5support-devel >= %{kdeplasmaver}
+BuildRequires:	libicu-devel >= 66.1
+BuildRequires:	libstdc++-devel >= 6:8
 BuildRequires:	ninja
-BuildRequires:	rpmbuild(macros) >= 1.164
-BuildRequires:	scim-devel
-BuildRequires:	xcb-util-keysyms-devel
+BuildRequires:	rpmbuild(macros) >= 1.736
+BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
+Requires:	Qt6Core >= %{qtver}
+Requires:	Qt6DBus >= %{qtver}
+Requires:	Qt6Gui >= %{qtver}
+Requires:	Qt6Network >= %{qtver}
+Requires:	Qt6Qml >= %{qtver}
+Requires:	Qt6Qt5Compat >= %{qtver}
+Requires:	Qt6Quick >= %{qtver}
+Requires:	Qt6Widgets >= %{qtver}
+Suggests:	Qt6Quick3D
+Suggests:	kf6-kirigami-addons
+Suggests:	kf6-kitemmodels
+Suggests:	kf6-purpose
 Obsoletes:	kp5-%{kpname} < %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
