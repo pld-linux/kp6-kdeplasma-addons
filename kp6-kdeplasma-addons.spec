@@ -7,19 +7,19 @@
 %undefine	with_qtwebengine
 %endif
 
-%define		kdeplasmaver	6.3.4
+%define		kdeplasmaver	6.3.5
 %define		kfver		6.5.0
 %define		qtver		6.7.0
 %define		kpname		kdeplasma-addons
 
 Summary:	All kind of addons to improve your Plasma experience
 Name:		kp6-%{kpname}
-Version:	6.3.4
+Version:	6.3.5
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	f878ff1684509f59aba3c7c733b3eb5c
+# Source0-md5:	330aa9cbea5bcaf36b050d0f7d16a3af
 URL:		http://www.kde.org/
 BuildRequires:	Qt6Core-devel >= %{qtver}
 BuildRequires:	Qt6DBus-devel >= %{qtver}
@@ -76,7 +76,7 @@ Suggests:	Qt6Quick3D
 Suggests:	kf6-kirigami-addons
 Suggests:	kf6-kitemmodels
 Suggests:	kf6-purpose
-Obsoletes:	kp5-%{kpname} < %{version}
+Obsoletes:	kp5-%{kpname} < 6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		qt6dir		%{_libdir}/qt6
