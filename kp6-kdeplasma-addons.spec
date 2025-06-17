@@ -7,19 +7,19 @@
 %undefine	with_qtwebengine
 %endif
 
-%define		kdeplasmaver	6.3.5
+%define		kdeplasmaver	6.4.0
 %define		kfver		6.5.0
 %define		qtver		6.7.0
 %define		kpname		kdeplasma-addons
 
 Summary:	All kind of addons to improve your Plasma experience
 Name:		kp6-%{kpname}
-Version:	6.3.5
+Version:	6.4.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	330aa9cbea5bcaf36b050d0f7d16a3af
+# Source0-md5:	9e560ae5c1bd3d3d38a6bc490be3a0ab
 URL:		http://www.kde.org/
 BuildRequires:	Qt6Core-devel >= %{qtver}
 BuildRequires:	Qt6DBus-devel >= %{qtver}
@@ -29,8 +29,8 @@ BuildRequires:	Qt6Qml-devel >= %{qtver}
 BuildRequires:	Qt6Qt5Compat-devel >= %{qtver}
 BuildRequires:	Qt6Quick-devel >= %{qtver}
 BuildRequires:	Qt6Test-devel >= %{qtver}
-BuildRequires:	Qt6Widgets-devel >= %{qtver}
 %{?with_qtwebengine:BuildRequires:	Qt6WebEngine-devel}
+BuildRequires:	Qt6Widgets-devel >= %{qtver}
 BuildRequires:	cmake >= 3.16.0
 BuildRequires:	kf6-extra-cmake-modules >= %{kfver}
 BuildRequires:	kf6-kauth-devel >= %{kfver}
@@ -154,9 +154,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/scalable/apps/fifteenpuzzle.svgz
 %dir %{_datadir}/kwin
 %{_datadir}/kwin/tabbox
+%dir %{_datadir}/plasma/desktoptheme/default
+%dir %{_datadir}/plasma/desktoptheme/default/widgets
 %{_datadir}/plasma/desktoptheme/default/widgets/timer.svgz
 %{_datadir}/plasma/plasmoids/org.kde.plasma.calculator
-%{_datadir}/plasma/plasmoids/org.kde.plasma.comic
 %{_datadir}/plasma/plasmoids/org.kde.plasma.fifteenpuzzle
 %{_datadir}/plasma/plasmoids/org.kde.plasma.fuzzyclock
 %{_datadir}/plasma/plasmoids/org.kde.plasma.kickerdash
@@ -171,7 +172,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %{_libdir}/libplasmapotdprovidercore.so
 %{_libdir}/qt6/plugins/plasma/applets/org.kde.plasma.grouping.so
-%{_libdir}/qt6/plugins/plasma/applets/org.kde.plasma.private.grouping.so
 %dir %{_libdir}/qt6/plugins/potd
 %{_libdir}/qt6/plugins/potd/plasma_potd_apodprovider.so
 %{_libdir}/qt6/plugins/potd/plasma_potd_bingprovider.so
@@ -190,7 +190,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/metainfo/org.kde.plasma.binaryclock.appdata.xml
 %{_datadir}/metainfo/org.kde.plasma.calculator.appdata.xml
 %{_datadir}/metainfo/org.kde.plasma.colorpicker.appdata.xml
-%{_datadir}/metainfo/org.kde.plasma.comic.appdata.xml
 %{_datadir}/metainfo/org.kde.plasma.diskquota.appdata.xml
 %{_datadir}/metainfo/org.kde.plasma.fifteenpuzzle.appdata.xml
 %{_datadir}/metainfo/org.kde.plasma.fuzzyclock.appdata.xml
@@ -209,7 +208,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/plasma/plasmoids/org.kde.plasma.binaryclock
 %{_datadir}/plasma/plasmoids/org.kde.plasma.grouping
 %{_datadir}/plasma/plasmoids/org.kde.plasma.mediaframe
-%{_datadir}/plasma/plasmoids/org.kde.plasma.private.grouping
 %{_datadir}/plasma/plasmoids/org.kde.plasma.weather
 %{_datadir}/plasma/wallpapers/org.kde.potd
 %{_libdir}/qt6/plugins/plasmacalendarplugins/astronomicalevents.so
@@ -237,7 +235,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/qt6/plugins/kf6/krunner/kcms/kcm_krunner_spellcheck.so
 %attr(755,root,root) %{_libdir}/qt6/plugins/potd/plasma_potd_simonstalenhagprovider.so
 
-%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/applets/org.kde.plasma.weather.so
 %dir %{_libdir}/qt6/qml/org/kde/plasma/wallpapers/potd
 %attr(755,root,root) %{_libdir}/qt6/qml/org/kde/plasma/wallpapers/potd/libplasma_wallpaper_potdplugin.so
 %attr(755,root,root) %{_libdir}/qt6/qml/org/kde/plasma/wallpapers/potd/qmldir
@@ -312,7 +309,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/dbus-1/system-services/org.kde.kameleonhelper.service
 %{_datadir}/dbus-1/system.d/org.kde.kameleonhelper.conf
 %{_datadir}/kwin/effects/cube/contents/ui/PlaceholderView.qml
-
+%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/krunner/krunner_colors.so
+%{_datadir}/qlogging-categories6/kdeplasma-addons.renamecategories
 
 %if %{with qtwebengine}
 %{_datadir}/plasma/plasmoids/org.kde.plasma.webbrowser
