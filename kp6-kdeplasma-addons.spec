@@ -7,19 +7,19 @@
 %undefine	with_qtwebengine
 %endif
 
-%define		kdeplasmaver	6.4.5
+%define		kdeplasmaver	6.5.0
 %define		kfver		6.5.0
 %define		qtver		6.7.0
 %define		kpname		kdeplasma-addons
 
 Summary:	All kind of addons to improve your Plasma experience
 Name:		kp6-%{kpname}
-Version:	6.4.5
-Release:	2
+Version:	6.5.0
+Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	0e7f8a5a7dcfbba1701b73d17df1c916
+# Source0-md5:	03fd18f0f2c4ab11015f6129887c5140
 URL:		http://www.kde.org/
 BuildRequires:	Qt6Core-devel >= %{qtver}
 BuildRequires:	Qt6DBus-devel >= %{qtver}
@@ -132,25 +132,23 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{kpname}.lang
 %defattr(644,root,root,755)
 %{_datadir}/knsrcfiles/comic.knsrc
+%ghost %{_libdir}/libplasmaweatherdata.so.6
+%{_libdir}/libplasmaweatherdata.so.*.*
+%ghost %{_libdir}/libplasmaweatherion.so.6
+%{_libdir}/libplasmaweatherion.so.*.*
 %dir %{_libdir}/qt6/qml/org/kde/plasma/private/colorpicker
-%attr(755,root,root) %{_libdir}/qt6/qml/org/kde/plasma/private/colorpicker/libcolorpickerplugin.so
+%{_libdir}/qt6/qml/org/kde/plasma/private/colorpicker/libcolorpickerplugin.so
 %{_libdir}/qt6/qml/org/kde/plasma/private/colorpicker/qmldir
 %dir %{_libdir}/qt6/qml/org/kde/plasma/private/diskquota
-%attr(755,root,root) %{_libdir}/qt6/qml/org/kde/plasma/private/diskquota/libdiskquotaplugin.so
+%{_libdir}/qt6/qml/org/kde/plasma/private/diskquota/libdiskquotaplugin.so
 %{_libdir}/qt6/qml/org/kde/plasma/private/diskquota/qmldir
-%dir %{_libdir}/qt6/qml/org/kde/plasma/private/quicklaunch
-%attr(755,root,root) %{_libdir}/qt6/qml/org/kde/plasma/private/quicklaunch/libquicklaunchplugin.so
-%{_libdir}/qt6/qml/org/kde/plasma/private/quicklaunch/qmldir
 
 %dir %{_libdir}/qt6/qml/org/kde/plasma/private/fifteenpuzzle
-%attr(755,root,root) %{_libdir}/qt6/qml/org/kde/plasma/private/fifteenpuzzle/libfifteenpuzzleplugin.so
+%{_libdir}/qt6/qml/org/kde/plasma/private/fifteenpuzzle/libfifteenpuzzleplugin.so
 %{_libdir}/qt6/qml/org/kde/plasma/private/fifteenpuzzle/qmldir
 %dir %{_libdir}/qt6/qml/org/kde/plasma/private/notes
-%attr(755,root,root) %{_libdir}/qt6/qml/org/kde/plasma/private/notes/libnotesplugin.so
+%{_libdir}/qt6/qml/org/kde/plasma/private/notes/libnotesplugin.so
 %{_libdir}/qt6/qml/org/kde/plasma/private/notes/qmldir
-%dir %{_libdir}/qt6/qml/org/kde/plasma/private/timer
-%attr(755,root,root) %{_libdir}/qt6/qml/org/kde/plasma/private/timer/libtimerplugin.so
-%{_libdir}/qt6/qml/org/kde/plasma/private/timer/qmldir
 %{_iconsdir}/hicolor/scalable/apps/fifteenpuzzle.svgz
 %dir %{_datadir}/kwin
 %{_datadir}/kwin/tabbox
@@ -163,31 +161,35 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/plasma/plasmoids/org.kde.plasma.kickerdash
 %{_datadir}/plasma/plasmoids/org.kde.plasma.konsoleprofiles
 %{_datadir}/plasma/plasmoids/org.kde.plasma.notes
-%{_datadir}/plasma/plasmoids/org.kde.plasma.timer
 %{_datadir}/plasma/plasmoids/org.kde.plasma.diskquota
-%{_datadir}/plasma/plasmoids/org.kde.plasma.quicklaunch
 %{_datadir}/plasma/plasmoids/org.kde.plasma.userswitcher
 %{_datadir}/plasma/wallpapers/org.kde.haenau
 %{_datadir}/plasma/wallpapers/org.kde.hunyango
 
 %{_libdir}/libplasmapotdprovidercore.so
 %{_libdir}/qt6/plugins/plasma/applets/org.kde.plasma.grouping.so
+%{_libdir}/qt6/plugins/plasma/applets/org.kde.plasma.binaryclock.so
+%{_libdir}/qt6/plugins/plasma/applets/org.kde.plasma.keyboardindicator.so
+%{_libdir}/qt6/plugins/plasma/applets/org.kde.plasma.quicklaunch.so
+%{_libdir}/qt6/plugins/plasma/applets/org.kde.plasma.timer.so
+%{_libdir}/qt6/plugins/plasma/applets/org.kde.plasma.weather.so
+%dir %{_libdir}/qt6/plugins/plasma/weather_ions
+%{_libdir}/qt6/plugins/plasma/weather_ions/bbcukmet.so
+%{_libdir}/qt6/plugins/plasma/weather_ions/dwd.so
+%{_libdir}/qt6/plugins/plasma/weather_ions/envcan.so
+%{_libdir}/qt6/plugins/plasma/weather_ions/noaa.so
+%{_libdir}/qt6/plugins/plasma/weather_ions/wettercom.so
 %dir %{_libdir}/qt6/plugins/potd
 %{_libdir}/qt6/plugins/potd/plasma_potd_apodprovider.so
 %{_libdir}/qt6/plugins/potd/plasma_potd_bingprovider.so
 %{_libdir}/qt6/plugins/potd/plasma_potd_epodprovider.so
 %{_libdir}/qt6/plugins/potd/plasma_potd_flickrprovider.so
-%{_libdir}/qt6/plugins/potd/plasma_potd_noaaprovider.so
 %{_libdir}/qt6/plugins/potd/plasma_potd_wcpotdprovider.so
 %dir %{_libdir}/qt6/qml/org/kde/plasma/private/mediaframe
 %{_libdir}/qt6/qml/org/kde/plasma/private/mediaframe/libmediaframeplugin.so
 %{_libdir}/qt6/qml/org/kde/plasma/private/mediaframe/qmldir
-%dir %{_libdir}/qt6/qml/org/kde/plasma/private/weather
-%{_libdir}/qt6/qml/org/kde/plasma/private/weather/libweatherplugin.so
-%{_libdir}/qt6/qml/org/kde/plasma/private/weather/qmldir
 %{_datadir}/metainfo/org.kde.haenau.appdata.xml
 %{_datadir}/metainfo/org.kde.hunyango.appdata.xml
-%{_datadir}/metainfo/org.kde.plasma.binaryclock.appdata.xml
 %{_datadir}/metainfo/org.kde.plasma.calculator.appdata.xml
 %{_datadir}/metainfo/org.kde.plasma.colorpicker.appdata.xml
 %{_datadir}/metainfo/org.kde.plasma.diskquota.appdata.xml
@@ -198,17 +200,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/metainfo/org.kde.plasma.konsoleprofiles.appdata.xml
 %{_datadir}/metainfo/org.kde.plasma.mediaframe.appdata.xml
 %{_datadir}/metainfo/org.kde.plasma.notes.appdata.xml
-%{_datadir}/metainfo/org.kde.plasma.quicklaunch.appdata.xml
-%{_datadir}/metainfo/org.kde.plasma.timer.appdata.xml
 %{_datadir}/metainfo/org.kde.plasma.userswitcher.appdata.xml
-%{_datadir}/metainfo/org.kde.plasma.weather.appdata.xml
 %{_datadir}/metainfo/org.kde.potd.appdata.xml
 %dir %{_datadir}/plasma/desktoptheme/default/weather
 %{_datadir}/plasma/desktoptheme/default/weather/wind-arrows.svgz
-%{_datadir}/plasma/plasmoids/org.kde.plasma.binaryclock
 %{_datadir}/plasma/plasmoids/org.kde.plasma.grouping
 %{_datadir}/plasma/plasmoids/org.kde.plasma.mediaframe
-%{_datadir}/plasma/plasmoids/org.kde.plasma.weather
 %{_datadir}/plasma/wallpapers/org.kde.potd
 %{_libdir}/qt6/plugins/plasmacalendarplugins/astronomicalevents.so
 %dir %{_libdir}/qt6/plugins/plasmacalendarplugins/astronomicalevents
@@ -217,26 +214,24 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/qt6/qml/org/kde/plasmacalendar/astronomicaleventsconfig
 %{_libdir}/qt6/qml/org/kde/plasmacalendar/astronomicaleventsconfig/libplasmacalendarastronomicaleventsconfig.so
 %{_libdir}/qt6/qml/org/kde/plasmacalendar/astronomicaleventsconfig/qmldir
-%{_datadir}/metainfo/org.kde.plasma.keyboardindicator.appdata.xml
 %{_datadir}/plasma/plasmoids/org.kde.plasma.colorpicker
-%{_datadir}/plasma/plasmoids/org.kde.plasma.keyboardindicator
 %dir %{_libdir}/qt6/plugins/kf6/krunner
-%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/krunner/krunner_charrunner.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/krunner/krunner_dictionary.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/krunner/krunner_katesessions.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/krunner/krunner_konsoleprofiles.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/krunner/krunner_spellcheck.so
+%{_libdir}/qt6/plugins/kf6/krunner/krunner_charrunner.so
+%{_libdir}/qt6/plugins/kf6/krunner/krunner_dictionary.so
+%{_libdir}/qt6/plugins/kf6/krunner/krunner_katesessions.so
+%{_libdir}/qt6/plugins/kf6/krunner/krunner_konsoleprofiles.so
+%{_libdir}/qt6/plugins/kf6/krunner/krunner_spellcheck.so
 %{_libdir}/qt6/plugins/kf6/krunner/org.kde.datetime.so
 
-%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/krunner/unitconverter.so
+%{_libdir}/qt6/plugins/kf6/krunner/unitconverter.so
 
-%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/krunner/kcms/kcm_krunner_charrunner.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/krunner/kcms/kcm_krunner_dictionary.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/krunner/kcms/kcm_krunner_spellcheck.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/potd/plasma_potd_simonstalenhagprovider.so
+%{_libdir}/qt6/plugins/kf6/krunner/kcms/kcm_krunner_charrunner.so
+%{_libdir}/qt6/plugins/kf6/krunner/kcms/kcm_krunner_dictionary.so
+%{_libdir}/qt6/plugins/kf6/krunner/kcms/kcm_krunner_spellcheck.so
+%{_libdir}/qt6/plugins/potd/plasma_potd_simonstalenhagprovider.so
 
 %dir %{_libdir}/qt6/qml/org/kde/plasma/wallpapers/potd
-%attr(755,root,root) %{_libdir}/qt6/qml/org/kde/plasma/wallpapers/potd/libplasma_wallpaper_potdplugin.so
+%{_libdir}/qt6/qml/org/kde/plasma/wallpapers/potd/libplasma_wallpaper_potdplugin.so
 %attr(755,root,root) %{_libdir}/qt6/qml/org/kde/plasma/wallpapers/potd/qmldir
 
 %{_libdir}/qt6/plugins/plasmacalendarplugins/alternatecalendar.so
@@ -256,10 +251,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/plasma/plasmoids/org.kde.plasma.addons.katesessions/metadata.json
 
 %ghost %{_libdir}/libplasmapotdprovidercore.so.2
-%attr(755,root,root) %{_libdir}/libplasmapotdprovidercore.so.*.*
-%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/packagestructure/plasma_comic.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kwin/effects/configs/kwin_cube_config.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/applets/org.kde.plasma.comic.so
+%{_libdir}/libplasmapotdprovidercore.so.*.*
+%{_libdir}/qt6/plugins/kf6/packagestructure/plasma_comic.so
+%{_libdir}/qt6/plugins/kwin/effects/configs/kwin_cube_config.so
+%{_libdir}/qt6/plugins/plasma/applets/org.kde.plasma.comic.so
 %{_libdir}/qt6/qml/org/kde/plasma/private/colorpicker/colorpickerplugin.qmltypes
 %{_libdir}/qt6/qml/org/kde/plasma/private/colorpicker/kde-qmlmodule.version
 %{_libdir}/qt6/qml/org/kde/plasma/private/diskquota/diskquotaplugin.qmltypes
@@ -272,12 +267,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/qt6/qml/org/kde/plasma/private/notes/notesplugin.qmltypes
 %{_libdir}/qt6/qml/org/kde/plasma/private/profiles/kde-qmlmodule.version
 %{_libdir}/qt6/qml/org/kde/plasma/private/profiles/profiles_qml_plugin.qmltypes
-%{_libdir}/qt6/qml/org/kde/plasma/private/quicklaunch/kde-qmlmodule.version
-%{_libdir}/qt6/qml/org/kde/plasma/private/quicklaunch/quicklaunchplugin.qmltypes
-%{_libdir}/qt6/qml/org/kde/plasma/private/timer/kde-qmlmodule.version
-%{_libdir}/qt6/qml/org/kde/plasma/private/timer/timerplugin.qmltypes
-%{_libdir}/qt6/qml/org/kde/plasma/private/weather/kde-qmlmodule.version
-%{_libdir}/qt6/qml/org/kde/plasma/private/weather/weatherplugin.qmltypes
 %{_libdir}/qt6/qml/org/kde/plasma/wallpapers/potd/kde-qmlmodule.version
 %{_libdir}/qt6/qml/org/kde/plasma/wallpapers/potd/plasma_wallpaper_potdplugin.qmltypes
 %{_libdir}/qt6/qml/org/kde/plasmacalendar/astronomicaleventsconfig/kde-qmlmodule.version
@@ -299,23 +288,24 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/qlogging-categories6/kdeplasma-addons.categories
 %{_datadir}/polkit-1/actions/org.kde.kameleonhelper.policy
 
-%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/kded/kameleon.so
+%{_libdir}/qt6/plugins/kf6/kded/kameleon.so
 %dir %{_libdir}/qt6/qml/org/kde/plasma/private/alternatecalendarconfig
 %{_libdir}/qt6/qml/org/kde/plasma/private/alternatecalendarconfig/kde-qmlmodule.version
-%attr(755,root,root) %{_libdir}/qt6/qml/org/kde/plasma/private/alternatecalendarconfig/libplasmacalendaralternatecalendarconfig.so
+%{_libdir}/qt6/qml/org/kde/plasma/private/alternatecalendarconfig/libplasmacalendaralternatecalendarconfig.so
 %{_libdir}/qt6/qml/org/kde/plasma/private/alternatecalendarconfig/plasmacalendaralternatecalendarconfig.qmltypes
 %{_libdir}/qt6/qml/org/kde/plasma/private/alternatecalendarconfig/qmldir
 %attr(755,root,root) %{_prefix}/libexec/kf6/kauth/kameleonhelper
 %{_datadir}/dbus-1/system-services/org.kde.kameleonhelper.service
 %{_datadir}/dbus-1/system.d/org.kde.kameleonhelper.conf
 %{_datadir}/kwin/effects/cube/contents/ui/PlaceholderView.qml
-%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/krunner/krunner_colors.so
+%{_libdir}/qt6/plugins/kf6/krunner/krunner_colors.so
 %{_datadir}/qlogging-categories6/kdeplasma-addons.renamecategories
+%{_datadir}/plasma/weather
 
 %if %{with qtwebengine}
 %{_datadir}/plasma/plasmoids/org.kde.plasma.webbrowser
 %dir %{_libdir}/qt6/qml/org/kde/plasma/private/dict
-%attr(755,root,root) %{_libdir}/qt6/qml/org/kde/plasma/private/dict/libdictplugin.so
+%{_libdir}/qt6/qml/org/kde/plasma/private/dict/libdictplugin.so
 %{_libdir}/qt6/qml/org/kde/plasma/private/dict/dictplugin.qmltypes
 %{_libdir}/qt6/qml/org/kde/plasma/private/dict/kde-qmlmodule.version
 %{_libdir}/qt6/qml/org/kde/plasma/private/dict/qmldir
@@ -329,3 +319,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_includedir}/plasma/potdprovider
 %{_libdir}/cmake/PlasmaPotdProvider
+%{_libdir}/libplasmaweatherdata.so
+%{_libdir}/libplasmaweatherion.so
