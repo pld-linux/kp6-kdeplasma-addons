@@ -8,8 +8,8 @@
 %endif
 
 %define		kdeplasmaver	6.5.5
-%define		kfver		6.5.0
-%define		qtver		6.7.0
+%define		kfver		6.18.0
+%define		qtver		6.9.0
 %define		kpname		kdeplasma-addons
 
 Summary:	All kind of addons to improve your Plasma experience
@@ -50,6 +50,7 @@ BuildRequires:	kf6-knotifications-devel >= %{kfver}
 BuildRequires:	kf6-kpackage-devel >= %{kfver}
 BuildRequires:	kf6-krunner-devel >= %{kfver}
 BuildRequires:	kf6-kservice-devel >= %{kfver}
+BuildRequires:	kf6-ksvg-devel >= %{kfver}
 BuildRequires:	kf6-kunitconversion-devel >= %{kfver}
 BuildRequires:	kf6-kwidgetsaddons-devel >= %{kfver}
 BuildRequires:	kf6-kxmlgui-devel >= %{kfver}
