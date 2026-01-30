@@ -15,7 +15,7 @@
 Summary:	All kind of addons to improve your Plasma experience
 Name:		kp6-%{kpname}
 Version:	6.5.5
-Release:	2
+Release:	3
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
