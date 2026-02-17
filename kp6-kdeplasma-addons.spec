@@ -7,19 +7,19 @@
 %undefine	with_qtwebengine
 %endif
 
-%define		kdeplasmaver	6.5.5
+%define		kdeplasmaver	6.6.0
 %define		kfver		6.18.0
 %define		qtver		6.9.0
 %define		kpname		kdeplasma-addons
 
 Summary:	All kind of addons to improve your Plasma experience
 Name:		kp6-%{kpname}
-Version:	6.5.5
-Release:	3
+Version:	6.6.0
+Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	509c81747ef76c0adf66fdb9e5d1e934
+# Source0-md5:	60c24a1db544685a28cd29f3e5aad690
 URL:		http://www.kde.org/
 BuildRequires:	Qt6Core-devel >= %{qtver}
 BuildRequires:	Qt6DBus-devel >= %{qtver}
@@ -137,33 +137,15 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libplasmaweatherdata.so.*.*
 %ghost %{_libdir}/libplasmaweatherion.so.6
 %{_libdir}/libplasmaweatherion.so.*.*
-%dir %{_libdir}/qt6/qml/org/kde/plasma/private/colorpicker
-%{_libdir}/qt6/qml/org/kde/plasma/private/colorpicker/libcolorpickerplugin.so
-%{_libdir}/qt6/qml/org/kde/plasma/private/colorpicker/qmldir
-%dir %{_libdir}/qt6/qml/org/kde/plasma/private/diskquota
-%{_libdir}/qt6/qml/org/kde/plasma/private/diskquota/libdiskquotaplugin.so
-%{_libdir}/qt6/qml/org/kde/plasma/private/diskquota/qmldir
 
 %dir %{_libdir}/qt6/qml/org/kde/plasma/private/fifteenpuzzle
 %{_libdir}/qt6/qml/org/kde/plasma/private/fifteenpuzzle/libfifteenpuzzleplugin.so
 %{_libdir}/qt6/qml/org/kde/plasma/private/fifteenpuzzle/qmldir
-%dir %{_libdir}/qt6/qml/org/kde/plasma/private/notes
-%{_libdir}/qt6/qml/org/kde/plasma/private/notes/libnotesplugin.so
-%{_libdir}/qt6/qml/org/kde/plasma/private/notes/qmldir
-%{_iconsdir}/hicolor/scalable/apps/fifteenpuzzle.svgz
 %dir %{_datadir}/kwin
 %{_datadir}/kwin/tabbox
 %dir %{_datadir}/plasma/desktoptheme/default
 %dir %{_datadir}/plasma/desktoptheme/default/widgets
 %{_datadir}/plasma/desktoptheme/default/widgets/timer.svgz
-%{_datadir}/plasma/plasmoids/org.kde.plasma.calculator
-%{_datadir}/plasma/plasmoids/org.kde.plasma.fifteenpuzzle
-%{_datadir}/plasma/plasmoids/org.kde.plasma.fuzzyclock
-%{_datadir}/plasma/plasmoids/org.kde.plasma.kickerdash
-%{_datadir}/plasma/plasmoids/org.kde.plasma.konsoleprofiles
-%{_datadir}/plasma/plasmoids/org.kde.plasma.notes
-%{_datadir}/plasma/plasmoids/org.kde.plasma.diskquota
-%{_datadir}/plasma/plasmoids/org.kde.plasma.userswitcher
 %{_datadir}/plasma/wallpapers/org.kde.haenau
 %{_datadir}/plasma/wallpapers/org.kde.hunyango
 
@@ -186,27 +168,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/qt6/plugins/potd/plasma_potd_epodprovider.so
 %{_libdir}/qt6/plugins/potd/plasma_potd_flickrprovider.so
 %{_libdir}/qt6/plugins/potd/plasma_potd_wcpotdprovider.so
-%dir %{_libdir}/qt6/qml/org/kde/plasma/private/mediaframe
-%{_libdir}/qt6/qml/org/kde/plasma/private/mediaframe/libmediaframeplugin.so
-%{_libdir}/qt6/qml/org/kde/plasma/private/mediaframe/qmldir
 %{_datadir}/metainfo/org.kde.haenau.appdata.xml
 %{_datadir}/metainfo/org.kde.hunyango.appdata.xml
-%{_datadir}/metainfo/org.kde.plasma.calculator.appdata.xml
-%{_datadir}/metainfo/org.kde.plasma.colorpicker.appdata.xml
-%{_datadir}/metainfo/org.kde.plasma.diskquota.appdata.xml
-%{_datadir}/metainfo/org.kde.plasma.fifteenpuzzle.appdata.xml
-%{_datadir}/metainfo/org.kde.plasma.fuzzyclock.appdata.xml
-%{_datadir}/metainfo/org.kde.plasma.grouping.appdata.xml
-%{_datadir}/metainfo/org.kde.plasma.kickerdash.appdata.xml
-%{_datadir}/metainfo/org.kde.plasma.konsoleprofiles.appdata.xml
-%{_datadir}/metainfo/org.kde.plasma.mediaframe.appdata.xml
-%{_datadir}/metainfo/org.kde.plasma.notes.appdata.xml
-%{_datadir}/metainfo/org.kde.plasma.userswitcher.appdata.xml
 %{_datadir}/metainfo/org.kde.potd.appdata.xml
 %dir %{_datadir}/plasma/desktoptheme/default/weather
 %{_datadir}/plasma/desktoptheme/default/weather/wind-arrows.svgz
-%{_datadir}/plasma/plasmoids/org.kde.plasma.grouping
-%{_datadir}/plasma/plasmoids/org.kde.plasma.mediaframe
 %{_datadir}/plasma/wallpapers/org.kde.potd
 %{_libdir}/qt6/plugins/plasmacalendarplugins/astronomicalevents.so
 %dir %{_libdir}/qt6/plugins/plasmacalendarplugins/astronomicalevents
@@ -215,7 +181,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/qt6/qml/org/kde/plasmacalendar/astronomicaleventsconfig
 %{_libdir}/qt6/qml/org/kde/plasmacalendar/astronomicaleventsconfig/libplasmacalendarastronomicaleventsconfig.so
 %{_libdir}/qt6/qml/org/kde/plasmacalendar/astronomicaleventsconfig/qmldir
-%{_datadir}/plasma/plasmoids/org.kde.plasma.colorpicker
 %dir %{_libdir}/qt6/plugins/kf6/krunner
 %{_libdir}/qt6/plugins/kf6/krunner/krunner_charrunner.so
 %{_libdir}/qt6/plugins/kf6/krunner/krunner_dictionary.so
@@ -242,30 +207,14 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/qt6/qml/org/kde/plasma/private/profiles
 %{_libdir}/qt6/qml/org/kde/plasma/private/profiles/qmldir
 %{_datadir}/kdevappwizard/templates/plasmapotdprovider.tar.bz2
-%{_datadir}/metainfo/org.kde.plasma.addons.katesessions.appdata.xml
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.addons.katesessions
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.addons.katesessions/contents
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.addons.katesessions/contents/ui
-%{_datadir}/plasma/plasmoids/org.kde.plasma.addons.katesessions/contents/ui/KateSessionsItemDelegate.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.addons.katesessions/contents/ui/Menu.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.addons.katesessions/contents/ui/main.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.addons.katesessions/metadata.json
 
 %ghost %{_libdir}/libplasmapotdprovidercore.so.2
 %{_libdir}/libplasmapotdprovidercore.so.*.*
 %{_libdir}/qt6/plugins/kf6/packagestructure/plasma_comic.so
 %{_libdir}/qt6/plugins/kwin/effects/configs/kwin_cube_config.so
 %{_libdir}/qt6/plugins/plasma/applets/org.kde.plasma.comic.so
-%{_libdir}/qt6/qml/org/kde/plasma/private/colorpicker/colorpickerplugin.qmltypes
-%{_libdir}/qt6/qml/org/kde/plasma/private/colorpicker/kde-qmlmodule.version
-%{_libdir}/qt6/qml/org/kde/plasma/private/diskquota/diskquotaplugin.qmltypes
-%{_libdir}/qt6/qml/org/kde/plasma/private/diskquota/kde-qmlmodule.version
 %{_libdir}/qt6/qml/org/kde/plasma/private/fifteenpuzzle/fifteenpuzzleplugin.qmltypes
 %{_libdir}/qt6/qml/org/kde/plasma/private/fifteenpuzzle/kde-qmlmodule.version
-%{_libdir}/qt6/qml/org/kde/plasma/private/mediaframe/kde-qmlmodule.version
-%{_libdir}/qt6/qml/org/kde/plasma/private/mediaframe/mediaframeplugin.qmltypes
-%{_libdir}/qt6/qml/org/kde/plasma/private/notes/kde-qmlmodule.version
-%{_libdir}/qt6/qml/org/kde/plasma/private/notes/notesplugin.qmltypes
 %{_libdir}/qt6/qml/org/kde/plasma/private/profiles/kde-qmlmodule.version
 %{_libdir}/qt6/qml/org/kde/plasma/private/profiles/profiles_qml_plugin.qmltypes
 %{_libdir}/qt6/qml/org/kde/plasma/wallpapers/potd/kde-qmlmodule.version
@@ -302,18 +251,35 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/qt6/plugins/kf6/krunner/krunner_colors.so
 %{_datadir}/qlogging-categories6/kdeplasma-addons.renamecategories
 %{_datadir}/plasma/weather
+%{_libdir}/qt6/plugins/plasma/applets/org.kde.plasma.addons.katesessions.so
+%{_libdir}/qt6/plugins/plasma/applets/org.kde.plasma.calculator.so
+%{_libdir}/qt6/plugins/plasma/applets/org.kde.plasma.colorpicker.so
+%{_libdir}/qt6/plugins/plasma/applets/org.kde.plasma.diskquota.so
+%{_libdir}/qt6/plugins/plasma/applets/org.kde.plasma.fifteenpuzzle.so
+%{_libdir}/qt6/plugins/plasma/applets/org.kde.plasma.fuzzyclock.so
+%{_libdir}/qt6/plugins/plasma/applets/org.kde.plasma.konsoleprofiles.so
+%{_libdir}/qt6/plugins/plasma/applets/org.kde.plasma.mediaframe.so
+%{_libdir}/qt6/plugins/plasma/applets/org.kde.plasma.notes.so
+%{_libdir}/qt6/plugins/plasma/applets/org.kde.plasma.userswitcher.so
+%dir %{_datadir}/kwin/scripts/virtualdesktopsonlyonprimary
+%dir %{_datadir}/kwin/scripts/virtualdesktopsonlyonprimary/contents
+%dir %{_datadir}/kwin/scripts/virtualdesktopsonlyonprimary/contents/code
+%{_datadir}/kwin/scripts/virtualdesktopsonlyonprimary/contents/code/main.js
+%{_datadir}/kwin/scripts/virtualdesktopsonlyonprimary/metadata.json
+%{_datadir}/metainfo/org.kde.plasma.kickerdash.appdata.xml
+%{_datadir}/metainfo/org.kde.tiled.appdata.xml
+%{_datadir}/plasma/plasmoids/org.kde.plasma.kickerdash
+%{_datadir}/plasma/wallpapers/org.kde.tiled
 
 %if %{with qtwebengine}
-%{_datadir}/plasma/plasmoids/org.kde.plasma.webbrowser
 %dir %{_libdir}/qt6/qml/org/kde/plasma/private/dict
 %{_libdir}/qt6/qml/org/kde/plasma/private/dict/libdictplugin.so
 %{_libdir}/qt6/qml/org/kde/plasma/private/dict/dictplugin.qmltypes
 %{_libdir}/qt6/qml/org/kde/plasma/private/dict/kde-qmlmodule.version
 %{_libdir}/qt6/qml/org/kde/plasma/private/dict/qmldir
 %{_iconsdir}/hicolor/scalable/apps/accessories-dictionary.svg*
-%{_datadir}/metainfo/org.kde.plasma.webbrowser.appdata.xml
-%{_datadir}/metainfo/org.kde.plasma_applet_dict.appdata.xml
-%{_datadir}/plasma/plasmoids/org.kde.plasma_applet_dict
+%{_libdir}/qt6/plugins/plasma/applets/org.kde.plasma.webbrowser.so
+%{_libdir}/qt6/plugins/plasma/applets/org.kde.plasma_applet_dict.so
 %endif
 
 %files devel
