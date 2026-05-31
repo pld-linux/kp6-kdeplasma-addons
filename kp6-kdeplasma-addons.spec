@@ -85,6 +85,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 All kind of addons to improve your Plasma experience.
 
+%description -l pl.UTF-8
+Różnego rodzaju dodatki do Plazmy.
+
 %package devel
 Summary:	Header files for %{kpname} development
 Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kpname}
