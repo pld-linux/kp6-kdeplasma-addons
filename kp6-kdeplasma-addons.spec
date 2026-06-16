@@ -7,19 +7,19 @@
 %undefine	with_qtwebengine
 %endif
 
-%define		kdeplasmaver	6.6.5
+%define		kdeplasmaver	6.7.0
 %define		kfver		6.18.0
 %define		qtver		6.9.0
 %define		kpname		kdeplasma-addons
 
 Summary:	All kind of addons to improve your Plasma experience
 Name:		kp6-%{kpname}
-Version:	6.6.5
-Release:	1
+Version:	6.7.0
+Release:	0.1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	10ac516b1c52877f554fd72a2fe97776
+# Source0-md5:	f48b8970ec698e7891c018a54e64d16b
 URL:		http://www.kde.org/
 BuildRequires:	Qt6Core-devel >= %{qtver}
 BuildRequires:	Qt6DBus-devel >= %{qtver}
@@ -31,7 +31,8 @@ BuildRequires:	Qt6Quick-devel >= %{qtver}
 BuildRequires:	Qt6Test-devel >= %{qtver}
 %{?with_qtwebengine:BuildRequires:	Qt6WebEngine-devel}
 BuildRequires:	Qt6Widgets-devel >= %{qtver}
-BuildRequires:	cmake >= 3.16.0
+BuildRequires:	cmake >= 3.22.0
+BuildRequires:	corrosion >= 0.6.1
 BuildRequires:	kf6-extra-cmake-modules >= %{kfver}
 BuildRequires:	kf6-kauth-devel >= %{kfver}
 BuildRequires:	kf6-kcmutils-devel >= %{kfver}
@@ -273,6 +274,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/metainfo/org.kde.tiled.appdata.xml
 %{_datadir}/plasma/plasmoids/org.kde.plasma.kickerdash
 %{_datadir}/plasma/wallpapers/org.kde.tiled
+%{_datadir}/dbus-1/system-services/org.kde.kameleon.qmk.helper.service
+%{_datadir}/dbus-1/system.d/org.kde.kameleon.qmk.helper.conf
+%attr(755,root,root) %{_prefix}/libexec/kf6/kameleon-qmk-helper
+%{_datadir}/polkit-1/actions/org.kde.kameleon.qmk.helper.policy
 
 %if %{with qtwebengine}
 %dir %{_libdir}/qt6/qml/org/kde/plasma/private/dict
@@ -288,6 +293,8 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/plasma/potdprovider
+%{_includedir}/plasma/weather
 %{_libdir}/cmake/PlasmaPotdProvider
+%{_libdir}/cmake/PlasmaWeather
 %{_libdir}/libplasmaweatherdata.so
 %{_libdir}/libplasmaweatherion.so
