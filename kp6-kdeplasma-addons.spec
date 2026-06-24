@@ -15,11 +15,13 @@
 Summary:	All kind of addons to improve your Plasma experience
 Name:		kp6-%{kpname}
 Version:	6.7.1
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
 # Source0-md5:	66f2a999e05a95337848ebada2066066
+Source1:	%{kpname}-vendor-crates-%{version}.tar.xz
+# Source1-md5:	eaba00dfc4531ad2cc6d7416d21038d6
 URL:		http://www.kde.org/
 BuildRequires:	Qt6Core-devel >= %{qtver}
 BuildRequires:	Qt6DBus-devel >= %{qtver}
@@ -103,9 +105,23 @@ Header files for %{kpname} development.
 Pliki nagłówkowe dla programistów używających %{kpname}.
 
 %prep
-%setup -q -n %{kpname}-%{version}
+%setup -q -n %{kpname}-%{version} -b1
+# Use our offline registry
+export CARGO_HOME="$(pwd)/.cargo"
+
+mkdir -p "$CARGO_HOME"
+cat >.cargo/config <<EOF
+[source.crates-io]
+registry = 'https://github.com/rust-lang/crates.io-index'
+replace-with = 'vendored-sources'
+
+[source.vendored-sources]
+directory = '$PWD/vendor'
+EOF
 
 %build
+export CARGO_HOME="$(pwd)/.cargo"
+
 %cmake -B build \
 	-G Ninja \
 	%{!?with_tests:-DBUILD_TESTING=OFF} \
@@ -119,9 +135,14 @@ ctest
 
 %install
 rm -rf $RPM_BUILD_ROOT
+export CARGO_HOME="$(pwd)/.cargo"
+
 %ninja_install -C build
 
 %find_lang %{kpname} --all-name --with-kde
+
+%{__rm} -f $RPM_BUILD_ROOT%{_prefix}/.crates.toml
+%{__rm} -f $RPM_BUILD_ROOT%{_prefix}/.crates2.json
 
 %clean
 rm -rf $RPM_BUILD_ROOT
