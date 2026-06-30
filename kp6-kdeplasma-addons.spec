@@ -7,21 +7,21 @@
 %undefine	with_qtwebengine
 %endif
 
-%define		kdeplasmaver	6.7.1
+%define		kdeplasmaver	6.7.2
 %define		kfver		6.18.0
 %define		qtver		6.9.0
 %define		kpname		kdeplasma-addons
 
 Summary:	All kind of addons to improve your Plasma experience
 Name:		kp6-%{kpname}
-Version:	6.7.1
-Release:	2
+Version:	6.7.2
+Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	66f2a999e05a95337848ebada2066066
+# Source0-md5:	f273428befb90264bae551afebb76608
 Source1:	%{kpname}-vendor-crates-%{version}.tar.xz
-# Source1-md5:	eaba00dfc4531ad2cc6d7416d21038d6
+# Source1-md5:	04561719fd44c427f10e12ca9dee4cef
 URL:		http://www.kde.org/
 BuildRequires:	Qt6Core-devel >= %{qtver}
 BuildRequires:	Qt6DBus-devel >= %{qtver}
@@ -105,14 +105,13 @@ Header files for %{kpname} development.
 Pliki nagłówkowe dla programistów używających %{kpname}.
 
 %prep
-%setup -q -n %{kpname}-%{version} -b1
+%setup -q -n %{kpname}-%{version} -a1
 # Use our offline registry
 export CARGO_HOME="$(pwd)/.cargo"
 
 mkdir -p "$CARGO_HOME"
 cat >.cargo/config <<EOF
 [source.crates-io]
-registry = 'https://github.com/rust-lang/crates.io-index'
 replace-with = 'vendored-sources'
 
 [source.vendored-sources]
