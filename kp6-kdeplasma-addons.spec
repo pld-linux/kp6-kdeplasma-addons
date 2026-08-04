@@ -7,21 +7,21 @@
 %undefine	with_qtwebengine
 %endif
 
-%define		kdeplasmaver	6.7.3
+%define		kdeplasmaver	6.7.4
 %define		kfver		6.18.0
 %define		qtver		6.9.0
 %define		kpname		kdeplasma-addons
 
 Summary:	All kind of addons to improve your Plasma experience
 Name:		kp6-%{kpname}
-Version:	6.7.3
+Version:	6.7.4
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	7203badd805b9d84fbecd11ee8816b84
+# Source0-md5:	fface9f4ea1a88a2e37b01edd8757db5
 Source1:	%{kpname}-vendor-crates-%{version}.tar.xz
-# Source1-md5:	40431edae8558ffbea4ece05f1cd9e91
+# Source1-md5:	9fb4b8904e6310379ba76ba1877baf0c
 URL:		http://www.kde.org/
 BuildRequires:	Qt6Core-devel >= %{qtver}
 BuildRequires:	Qt6DBus-devel >= %{qtver}
@@ -125,7 +125,9 @@ export CARGO_HOME="$(pwd)/.cargo"
 	-G Ninja \
 	%{!?with_tests:-DBUILD_TESTING=OFF} \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
-	-DKDE_INSTALL_DOCBUNDLEDIR=%{_kdedocdir}
+	-DKDE_INSTALL_DOCBUNDLEDIR=%{_kdedocdir} \
+	-DRust_CARGO_TARGET=%cargo_target
+
 %ninja_build -C build
 
 %if %{with tests}
