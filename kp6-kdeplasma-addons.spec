@@ -33,6 +33,7 @@ BuildRequires:	Qt6Quick-devel >= %{qtver}
 BuildRequires:	Qt6Test-devel >= %{qtver}
 %{?with_qtwebengine:BuildRequires:	Qt6WebEngine-devel}
 BuildRequires:	Qt6Widgets-devel >= %{qtver}
+BuildRequires:	cargo
 BuildRequires:	cmake >= 3.22.0
 BuildRequires:	corrosion >= 0.6.1
 BuildRequires:	kf6-extra-cmake-modules >= %{kfver}
@@ -63,10 +64,11 @@ BuildRequires:	kp6-plasma5support-devel >= %{kdeplasmaver}
 BuildRequires:	libicu-devel >= 66.1
 BuildRequires:	libstdc++-devel >= 6:8
 BuildRequires:	ninja
-BuildRequires:	rpmbuild(macros) >= 1.736
+BuildRequires:	rpmbuild(macros) >= 2.050
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires(post,postun):	gtk-update-icon-cache
+%{?rust_req}
 Requires:	Qt6DBus >= %{qtver}
 Requires:	Qt6Gui >= %{qtver}
 Requires:	Qt6Network >= %{qtver}
@@ -127,7 +129,7 @@ export PKG_CONFIG_ALLOW_CROSS=1
 	%{!?with_tests:-DBUILD_TESTING=OFF} \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
 	-DKDE_INSTALL_DOCBUNDLEDIR=%{_kdedocdir} \
-	-DRust_CARGO_TARGET=%cargo_target
+	-DRust_CARGO_TARGET=%rust_target
 
 %ninja_build -C build
 
