@@ -120,6 +120,7 @@ EOF
 
 %build
 export CARGO_HOME="$(pwd)/.cargo"
+export PKG_CONFIG_ALLOW_CROSS=1
 
 %cmake -B build \
 	-G Ninja \
@@ -137,6 +138,7 @@ ctest
 %install
 rm -rf $RPM_BUILD_ROOT
 export CARGO_HOME="$(pwd)/.cargo"
+export PKG_CONFIG_ALLOW_CROSS=1
 
 %ninja_install -C build
 
