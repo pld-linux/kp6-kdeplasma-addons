@@ -7,21 +7,21 @@
 %undefine	with_qtwebengine
 %endif
 
-%define		kdeplasmaver	6.7.5
+%define		kdeplasmaver	6.8.0
 %define		kfver		6.18.0
 %define		qtver		6.9.0
 %define		kpname		kdeplasma-addons
 
 Summary:	All kind of addons to improve your Plasma experience
 Name:		kp6-%{kpname}
-Version:	6.7.5
+Version:	6.8.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	726b5417d4293a42cc6f882fe4564a04
+# Source0-md5:	1f77d3fc3bbc7df8883691f475e9a898
 Source1:	%{kpname}-vendor-crates-%{version}.tar.xz
-# Source1-md5:	f2f3861e277b3c512a4afc19dc9d5b5f
+# Source1-md5:	760f6bbe6fd9d467358f534ffba665ff
 URL:		http://www.kde.org/
 BuildRequires:	Qt6Core-devel >= %{qtver}
 BuildRequires:	Qt6DBus-devel >= %{qtver}
@@ -191,11 +191,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/qt6/plugins/plasma/weather_ions/dwd.so
 %{_libdir}/qt6/plugins/plasma/weather_ions/envcan.so
 %{_libdir}/qt6/plugins/plasma/weather_ions/noaa.so
-%{_libdir}/qt6/plugins/plasma/weather_ions/wettercom.so
 %dir %{_libdir}/qt6/plugins/potd
 %{_libdir}/qt6/plugins/potd/plasma_potd_apodprovider.so
 %{_libdir}/qt6/plugins/potd/plasma_potd_bingprovider.so
-%{_libdir}/qt6/plugins/potd/plasma_potd_epodprovider.so
 %{_libdir}/qt6/plugins/potd/plasma_potd_flickrprovider.so
 %{_libdir}/qt6/plugins/potd/plasma_potd_wcpotdprovider.so
 %{_datadir}/metainfo/org.kde.haenau.appdata.xml
